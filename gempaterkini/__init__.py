@@ -8,7 +8,7 @@ def ekstraksi_data():
     hasil['waktu'] = '12:05:52 WIB'
     hasil['magnitudo'] = 4.0
     hasil['lokasi'] = {'ls':1.48, 'bt':134.01}
-    hasil['pusat'] = 'Pusat gempa berada di darat 18 KM barat laut ransiki'
+    hasil['pusat'] = 'Pusat gempa berada di darat 118 KM barat laut ransiki'
     hasil['dirasakan'] = 'Dirasakan (skala MMI): II-III Manokwari, II-III Ransiki'
 
     return hasil
