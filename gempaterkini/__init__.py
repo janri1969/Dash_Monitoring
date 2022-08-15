@@ -68,10 +68,5 @@ def tampilkan_data(result):
     print(f"Kedalaman {result['kedalaman']}")
     print(f"Lokasi {result['lokasi']}")
     print(f"Koordinat : LS = {result['koordinat']['ls']}, BT = {result['koordinat']['bt']}")
-    print(f"{f"Dirasakan {result['dirasakan']}")
-
-
-if __name == '__main__':
-    print('Ini adalah Package Gempa Terkini')
-
+    print(f"Dirasakan {result['dirasakan']}")
 
