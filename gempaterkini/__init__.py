@@ -9,7 +9,7 @@ def ekstraksi_data():
 
 #    try:
     content = requests.get('https://bmkg.go.id')
-#        except Exception:
+##        except Exception:
 #        return None
 
     if content.status_code == 200:
