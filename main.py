@@ -1,5 +1,5 @@
 """
-Aplikasi monitoring terkini
+Aplikasi monitoring terkini 1
 """
 from gempaterkini import ekstraksi_data, tampilkan_data
 

@@ -1,5 +1,5 @@
 """
-Aplikasi gempa terkini dari BMKG
+Aplikasi gempa terkini dari BMKG 1
 """
 import requests
 from bs4 import BeautifulSoup
