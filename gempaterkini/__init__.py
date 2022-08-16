@@ -6,10 +6,11 @@ from bs4 import BeautifulSoup
 
 def ekstraksi_data():
 
-    try:
-        content = requests.get('https://bmkg.go.id')
-        except Exception:
-        return None
+
+#    try:
+    content = requests.get('https://bmkg.go.id')
+#        except Exception:
+#        return None
 
     if content.status_code == 200:
         soup = BeautifulSoup(content.text, 'html.paser')
@@ -57,9 +58,9 @@ def ekstraksi_data():
 
 
 def tampilkan_data(result):
-    if result is None:
-        print("Tidak menemukan data gempa terkini")
-        return
+#    if result is None:
+#        print("Tidak menemukan data gempa terkini")
+#        return
 
     print("Gempa Terakhir berdasarkan BMKG")
     print(f"Tanggal {result['tanggal']}")
