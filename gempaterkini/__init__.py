@@ -6,14 +6,13 @@ from bs4 import BeautifulSoup
 
 def ekstraksi_data():
 
-
-#    try:
-    content = requests.get('https://bmkg.go.id')
-##        except Exception:
-#        return None
+    try:
+        content = requests.get("https://bmkg.go.id")
+    except Exception:
+        return None
 
     if content.status_code == 200:
-        soup = BeautifulSoup(content.text, 'html.paser')
+        soup = BeautifulSoup(content.text, 'html.parser')
 
         result = soup.find('span', {'class' : 'waktu'})
         result = result.text.split(', ')
@@ -29,7 +28,7 @@ def ekstraksi_data():
         lokasi = None
         dirasakan = None
 
-        for res in result:
+        for rest in result:
             if i == 1:
                 magnitudo = rest.text
             elif i == 2:
@@ -56,18 +55,17 @@ def ekstraksi_data():
     else:
         return None
 
-
 def tampilkan_data(result):
-#    if result is None:
-#        print("Tidak menemukan data gempa terkini")
-#        return
+    if result is None:
+        print("Tidak menemukan data gempa terkini")
+        return
 
     print("Gempa Terakhir berdasarkan BMKG")
     print(f"Tanggal {result['tanggal']}")
     print(f"Waktu {result['waktu']}")
     print(f"Magnitudo {result['magnitudo']}")
-    print(f"Kedalaman {result['kedalaman']}")
-    print(f"Lokasi {result['lokasi']}")
-    print(f"Koordinat : LS = {result['koordinat']['ls']}, BT = {result['koordinat']['bt']}")
-    print(f"Dirasakan {result['dirasakan']}")
+#    print(f"Kedalaman {result['kedalaman']}")
+#    print(f"Lokasi {result['lokasi']}")
+#    print(f"Koordinat : LS = {result['koordinat']['ls']}, BT = {result['koordinat']['bt']}")
+#    print(f"Dirasakan {result['dirasakan']}")
 
