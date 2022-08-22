@@ -73,6 +73,5 @@ def tampilkan_data(result):
     print(f"Magnitudo {result['magnitudo']}")
     print(f"Kedalaman {result['kedalaman']}")
     print(f"Lokasi {result['lokasi']}")
-#    print(f"Koordinat : LS = {result['koordinat']['ls']}, BT = {result['koordinat']['bt']}")
-    print(f"Koordinat {result['koordinat']}")
-    print(f"Dirasakan {result['dirasakan']}")
+    print(f"Koordinat : LS = {result['koordinat']['ls']}, BT = {result['koordinat']['bt']}")
+    print(f"{result['dirasakan']}")
