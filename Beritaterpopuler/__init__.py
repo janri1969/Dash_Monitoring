@@ -1,5 +1,5 @@
 """
-Aplikasi Berita Terpopuler pada detik.com
+Aplikasi Berita Terpopuler
 """
 import requests
 from bs4 import BeautifulSoup
@@ -8,21 +8,22 @@ def ekstraksi_data():
 
     try:
         content = requests.get("https://detik.com")
-#        print(content.text)
     except Exception:
         return None
 
     if content.status_code == 200:
         soup = BeautifulSoup(content.text, 'html.parser')
-
         result = soup.find('span', {'class' : 'waktu'})
-        print(result)
         result = result.text.split(', ')
-        print(result)
+
         tanggal = result[0]
         waktu = result[1]
-
+#        print(tanggal)
+#        print(waktu)
+#        print(result)
         result = soup.find('div', {'class' : 'col-md-6 col-xs-6 gempabumi-detail no-padding'})
+        result = result.findChildren('li')
+#        print(result)
         i = 0
         magnitudo = None
         kedalaman = None
@@ -31,19 +32,21 @@ def ekstraksi_data():
         lokasi = None
         dirasakan = None
 
-        for rest in result:
+        for res in result:
             if i == 1:
-                magnitudo = rest.text
+                magnitudo = res.text
+
             elif i == 2:
-                kedalaman = rest.text
+                kedalaman = res.text
             elif i == 3:
-                koordinat = rest.text.split[' - ']
+                koordinat = res.text.split('- ')
+#                 koordinat = res.text
                 ls = koordinat[0]
                 bt = koordinat[1]
             elif i == 4:
-                lokasi = rest.text
+                lokasi = res.text
             elif i == 5:
-                dirasakan = rest.text
+                dirasakan = res.text
             i = i + 1
 
         hasil = dict()
@@ -59,6 +62,7 @@ def ekstraksi_data():
         return None
 
 def tampilkan_data(result):
+
     if result is None:
         print("Tidak menemukan data gempa terkini")
         return
@@ -67,7 +71,8 @@ def tampilkan_data(result):
     print(f"Tanggal {result['tanggal']}")
     print(f"Waktu {result['waktu']}")
     print(f"Magnitudo {result['magnitudo']}")
-#    print(f"Kedalaman {result['kedalaman']}")
-#    print(f"Lokasi {result['lokasi']}")
-#    print(f"Koordinat : LS = {result['koordinat']['ls']}, BT = {result['koordinat']['bt']}")
-#    print(f"Dirasakan {result['dirasakan']}")
+    print(f"Kedalaman {result['kedalaman']}")
+    print(f"Lokasi {result['lokasi']}")
+    print(f"Koordinat : LS = {result['koordinat']['ls']}, BT = {result['koordinat']['bt']}")
+    print(f"{result['dirasakan']}")
+
